@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/d-akhil-kumar/finance-loan-server/issues"
   },
-  "homepage": "https://github.com/d-akhil-kumar/finance-loan-server#readme"
+  "homepage": "https://github.com/d-akhil-kumar/finance-loan-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
