@@ -41,3 +41,32 @@ exports.create = async (req, res, next) => {
         next(error)
     }
 }
+
+
+exports.deleteByNo = async (req,res,next) => {
+    try {
+        if (!validator.validMobile(req.body.mobile)) {
+            res.status(400).json({
+                status: "fail",
+                message: "Invalid Mobile Number"
+            })
+        }
+
+        const data = await requests.deleteOne({mobile: req.body.mobile})
+
+        if(data.deletedCount == 1){
+            res.status(201).json({
+                status: "success",     
+                data: "Requests have been deleted for this number. Please create new new request.",     
+              });
+        }else{
+            res.status(404).json({
+                status: "Fail",     
+                data: "No request from this number",     
+              });
+        }
+
+    } catch (error) {
+        next(error)
+    }
+}

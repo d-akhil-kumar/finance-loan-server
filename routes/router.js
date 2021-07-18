@@ -11,6 +11,11 @@ route.get('/allservices', serviceController.listAll)
 //provide the specific service and its sub service details.
 route.get('/service/:type', serviceController.listByType)
 
+//	Able to calculate the emi amount for a certain period.
+// {"amt":300000,"tenure":56,"type":"MI Loan"}
+route.post('/service/:type/calculate', serviceController.calculateEmi)
+
+
 //body expected	
 /*
     { 
@@ -25,6 +30,11 @@ route.get('/service/:type', serviceController.listByType)
 route.post('/service/:type/form', requestController.create)
 
 
+//The User can delete the requested form
+//  {“mobile”:9972093312 }
+route.delete('/deleterequest', requestController.deleteByNo)
+
+
 //The user can register as a member with their mail id and mobile number
 //body expected
 /*
@@ -36,6 +46,17 @@ route.post('/service/:type/form', requestController.create)
     }
 */
 route.post('/member', memberController.create)
+
+
+// change the created password with the mobile number.
+//	{"mobile":9962193316,"password”:”sdf123” }
+route.put('/updatepassword', memberController.updatePassword)
+
+
+// 	The User can cancel the membership with mobile number as request.
+// {“mobile”:9972093312 }
+route.delete('/cancelmember', memberController.deleteByNo)
+
 
 
 route.all('*/', (req,res,next) => {
