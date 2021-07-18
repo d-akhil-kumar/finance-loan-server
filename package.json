@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/d-akhil-kumar/finance-loan-server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "mongoose": "^5.13.3"
